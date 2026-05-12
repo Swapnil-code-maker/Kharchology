@@ -6,3 +6,4 @@ numpy
 groq
 plotly
 scikit-learn
+prophet
