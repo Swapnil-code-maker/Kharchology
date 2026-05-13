@@ -6,19 +6,14 @@ export default function HeroSection() {
     <section
       className="
         relative
+        min-h-[90vh]
         flex
-        flex-col
         items-center
         justify-center
-        text-center
-        px-5
-        sm:px-8
-        pt-16
-        sm:pt-24
-        md:pt-28
-        pb-20
-        min-h-[88vh]
         overflow-hidden
+        px-6
+        sm:px-8
+        pb-16
       "
     >
 
@@ -36,10 +31,10 @@ export default function HeroSection() {
         <div
           className="
             absolute
-            top-[-120px]
-            right-[-120px]
-            w-[420px]
-            h-[420px]
+            top-[-180px]
+            right-[-180px]
+            w-[500px]
+            h-[500px]
             rounded-full
             bg-emerald-500/10
             blur-3xl
@@ -49,10 +44,10 @@ export default function HeroSection() {
         <div
           className="
             absolute
-            bottom-[-150px]
-            left-[-100px]
-            w-[350px]
-            h-[350px]
+            bottom-[-220px]
+            left-[-140px]
+            w-[420px]
+            h-[420px]
             rounded-full
             bg-white/5
             blur-3xl
@@ -67,10 +62,13 @@ export default function HeroSection() {
         className="
           relative
           z-10
+          w-full
+          max-w-6xl
+          mx-auto
           flex
           flex-col
           items-center
-          w-full
+          text-center
         "
       >
 
@@ -78,16 +76,15 @@ export default function HeroSection() {
 
         <h1
           className="
-            text-[58px]
-            sm:text-[82px]
-            md:text-[110px]
-            lg:text-[120px]
-            xl:text-[135px]
-            leading-[0.92]
+            text-white
             font-extrabold
             tracking-tight
-            text-white
-            mb-6
+            leading-[0.92]
+            text-[58px]
+            sm:text-[84px]
+            md:text-[110px]
+            lg:text-[125px]
+            xl:text-[135px]
           "
         >
           Kharchology
@@ -97,30 +94,26 @@ export default function HeroSection() {
 
         <p
           className="
+            mt-6
+            text-zinc-400
+            leading-relaxed
             text-[18px]
             sm:text-[22px]
-            md:text-[26px]
-            lg:text-[30px]
-            leading-relaxed
-            text-zinc-400
-            mb-10
-            max-w-[92%]
-            sm:max-w-3xl
+            md:text-[28px]
+            max-w-3xl
           "
         >
-          Decode your spending patterns
-          and build smarter financial habits.
+          Decode your spending patterns and
+          build smarter financial habits.
         </p>
 
-        {/* FINANCIAL THOUGHT */}
+        {/* QUOTE */}
 
         <div
           className="
+            mt-12
             w-full
-            max-w-[92%]
-            sm:max-w-2xl
-            md:max-w-3xl
-            mb-10
+            max-w-3xl
           "
         >
           <FinancialThought />
@@ -132,6 +125,7 @@ export default function HeroSection() {
           href="/login"
 
           className="
+            mt-12
             bg-emerald-500
             hover:bg-emerald-600
             transition-all
@@ -146,7 +140,6 @@ export default function HeroSection() {
             sm:text-[22px]
             font-bold
             shadow-lg
-            inline-block
           "
         >
           Start Tracking
