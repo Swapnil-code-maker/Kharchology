@@ -10,11 +10,9 @@ export default function Navbar() {
         flex
         items-center
         justify-between
-        px-5
+        px-4
         sm:px-8
         py-5
-        gap-4
-        flex-wrap
       "
     >
 
@@ -24,7 +22,7 @@ export default function Navbar() {
         className="
           flex
           items-center
-          gap-4
+          gap-3
           min-w-0
         "
       >
@@ -32,16 +30,16 @@ export default function Navbar() {
         <Image
           src="/logo/Kharchology-logo.png"
           alt="Kharchology Logo"
-          width={50}
-          height={50}
+          width={42}
+          height={42}
           className="rounded-xl"
         />
 
-        <div className="min-w-0">
+        <div className="leading-tight">
 
           <h1
             className="
-              text-[22px]
+              text-[20px]
               sm:text-2xl
               font-bold
               text-white
@@ -53,7 +51,7 @@ export default function Navbar() {
 
           <p
             className="
-              text-[13px]
+              text-[12px]
               sm:text-sm
               text-emerald-400
             "
@@ -70,11 +68,9 @@ export default function Navbar() {
       <div
         className="
           flex
-          gap-3
-          sm:gap-4
           items-center
-          flex-wrap
-          justify-end
+          gap-3
+          shrink-0
         "
       >
 
@@ -82,11 +78,11 @@ export default function Navbar() {
           href="/login"
 
           className="
+            hidden
+            sm:block
             text-zinc-400
             hover:text-white
             transition
-            text-sm
-            sm:text-base
           "
         >
           Login
@@ -102,8 +98,8 @@ export default function Navbar() {
             hover:scale-105
             px-4
             sm:px-5
-            py-2
-            rounded-xl
+            py-2.5
+            rounded-2xl
             text-black
             text-sm
             sm:text-base
