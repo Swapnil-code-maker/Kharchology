@@ -107,44 +107,46 @@ export default function HeroSection() {
           build smarter financial habits.
         </p>
 
-        {/* QUOTE */}
+{/* THOUGHT */}
 
-        <div
-          className="
-            mt-12
-            w-full
-            max-w-3xl
-          "
-        >
-          <FinancialThought />
-        </div>
+<div
+  className="
+    mt-7
+    sm:mt-8
+    w-full
+    max-w-[95%]
+    sm:max-w-2xl
+  "
+>
+  <FinancialThought />
+</div>
 
-        {/* BUTTON */}
+{/* BUTTON */}
 
-        <Link
-          href="/login"
+<Link
+  href="/login"
 
-          className="
-            mt-12
-            bg-emerald-500
-            hover:bg-emerald-600
-            transition-all
-            duration-300
-            hover:scale-105
-            px-8
-            sm:px-10
-            py-4
-            rounded-2xl
-            text-black
-            text-[18px]
-            sm:text-[22px]
-            font-bold
-            shadow-lg
-          "
-        >
-          Start Tracking
-        </Link>
-
+  className="
+    mt-12
+    sm:mt-14
+    bg-emerald-500
+    hover:bg-emerald-600
+    transition-all
+    duration-300
+    hover:scale-105
+    px-8
+    sm:px-10
+    py-4
+    rounded-2xl
+    text-black
+    text-[18px]
+    sm:text-[22px]
+    font-bold
+    shadow-lg
+  "
+>
+  Start Tracking
+</Link>
       </div>
 
     </section>
