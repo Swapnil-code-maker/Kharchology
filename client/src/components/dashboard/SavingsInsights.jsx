@@ -13,11 +13,39 @@ export default function SavingsInsights({
 }) {
 
   // =========================================
-  // TOTAL SPENT
+  // CURRENT MONTH FILTER
+  // =========================================
+
+  const currentMonth =
+    new Date().getMonth();
+
+  const currentYear =
+    new Date().getFullYear();
+
+  const monthlyExpenses =
+    expenses.filter((expense) => {
+
+      if (!expense.date)
+        return false;
+
+      const expenseDate =
+        new Date(expense.date);
+
+      return (
+        expenseDate.getMonth() ===
+          currentMonth &&
+
+        expenseDate.getFullYear() ===
+          currentYear
+      );
+    });
+
+  // =========================================
+  // TOTAL MONTHLY SPENT
   // =========================================
 
   const totalSpent =
-    expenses.reduce(
+    monthlyExpenses.reduce(
       (sum, expense) =>
         sum +
         Number(
@@ -31,10 +59,7 @@ export default function SavingsInsights({
   // =========================================
 
   const remainingBudget =
-    Math.max(
-      budget - totalSpent,
-      0
-    );
+    budget - totalSpent;
 
   // =========================================
   // SAVINGS RATE
@@ -50,45 +75,6 @@ export default function SavingsInsights({
       : 0;
 
   // =========================================
-  // CURRENT MONTH SPEND
-  // =========================================
-
-  const currentMonth =
-    new Date().getMonth();
-
-  const currentYear =
-    new Date().getFullYear();
-
-  const monthlySpend =
-    expenses
-      .filter((expense) => {
-
-        if (!expense.date)
-          return false;
-
-        const expenseDate =
-          new Date(
-            expense.date
-          );
-
-        return (
-          expenseDate.getMonth() ===
-            currentMonth &&
-
-          expenseDate.getFullYear() ===
-            currentYear
-        );
-      })
-      .reduce(
-        (sum, expense) =>
-          sum +
-          Number(
-            expense.amount || 0
-          ),
-        0
-      );
-
-  // =========================================
   // DAILY AVERAGE
   // =========================================
 
@@ -96,9 +82,9 @@ export default function SavingsInsights({
     new Date().getDate();
 
   const dailyAverage =
-    monthlySpend > 0
+    totalSpent > 0
       ? Math.round(
-          monthlySpend /
+          totalSpent /
             currentDay
         )
       : 0;
@@ -111,7 +97,7 @@ export default function SavingsInsights({
     budget > 0
       ? Math.min(
           Math.round(
-            (monthlySpend /
+            (totalSpent /
               budget) *
               100
           ),
@@ -143,10 +129,14 @@ export default function SavingsInsights({
         PiggyBank,
 
       accent:
-        "#16A34A",
+        remainingBudget >= 0
+          ? "#16A34A"
+          : "#DC2626",
 
       bg:
-        "#DCFCE7",
+        remainingBudget >= 0
+          ? "#DCFCE7"
+          : "#FEE2E2",
     },
 
     {
@@ -183,10 +173,14 @@ export default function SavingsInsights({
         TrendingUp,
 
       accent:
-        "#F59E0B",
+        budgetUsage >= 90
+          ? "#DC2626"
+          : "#F59E0B",
 
       bg:
-        "#FEF3C7",
+        budgetUsage >= 90
+          ? "#FEE2E2"
+          : "#FEF3C7",
     },
 
     {
