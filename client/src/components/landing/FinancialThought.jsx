@@ -12,26 +12,58 @@ const thoughts = [
 
 export default function FinancialThought() {
 
-  const [currentThought, setCurrentThought] = useState(0);
+  const [currentThought, setCurrentThought] =
+    useState(0);
 
   useEffect(() => {
 
     const interval = setInterval(() => {
 
-      setCurrentThought((prev) =>
-        (prev + 1) % thoughts.length
+      setCurrentThought(
+        (prev) =>
+          (prev + 1) %
+          thoughts.length
       );
 
     }, 4000);
 
-    return () => clearInterval(interval);
+    return () =>
+      clearInterval(interval);
 
   }, []);
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 max-w-2xl shadow-2xl">
 
-      <p className="text-emerald-400 italic text-xl text-center transition-all duration-500">
+    <div
+      className="
+        bg-zinc-900/90
+        border
+        border-zinc-800
+        rounded-3xl
+        px-5
+        sm:px-8
+        py-5
+        w-full
+        max-w-[92%]
+        sm:max-w-2xl
+        shadow-2xl
+        backdrop-blur-xl
+      "
+    >
+
+      <p
+        className="
+          text-emerald-400
+          italic
+          text-[18px]
+          sm:text-[22px]
+          md:text-[28px]
+          text-center
+          leading-relaxed
+          transition-all
+          duration-500
+        "
+      >
         “{thoughts[currentThought]}”
       </p>
 
