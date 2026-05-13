@@ -90,11 +90,42 @@ export default function BudgetsPage() {
 
   }, []);
 
-  // TOTAL SPENDING
+  // =========================================
+  // CURRENT MONTH FILTER
+  // =========================================
+
+  const currentMonth =
+    new Date().getMonth();
+
+  const currentYear =
+    new Date().getFullYear();
+
+  const monthlyExpenses =
+    expenses.filter((expense) => {
+
+      if (!expense.date)
+        return false;
+
+      const expenseDate =
+        new Date(expense.date);
+
+      return (
+        expenseDate.getMonth() ===
+          currentMonth &&
+
+        expenseDate.getFullYear() ===
+          currentYear
+      );
+    });
+
+  // =========================================
+  // TOTAL MONTHLY SPENDING
+  // =========================================
+
   const totalSpending =
     useMemo(() => {
 
-      return expenses.reduce(
+      return monthlyExpenses.reduce(
         (total, expense) =>
           total +
           Number(
@@ -103,7 +134,7 @@ export default function BudgetsPage() {
         0
       );
 
-    }, [expenses]);
+    }, [monthlyExpenses]);
 
   // REMAINING
   const remainingBudget =
@@ -274,11 +305,11 @@ export default function BudgetsPage() {
             marginBottom: "28px",
           }}
         >
-<BudgetOverview
-  expenses={expenses}
-  budget={monthlyBudget}
-  setBudget={setMonthlyBudget}
-/>
+          <BudgetOverview
+            expenses={expenses}
+            budget={monthlyBudget}
+            setBudget={setMonthlyBudget}
+          />
         </div>
 
         {/* ANALYTICS CARDS */}
@@ -537,7 +568,7 @@ export default function BudgetsPage() {
             }}
           >
             {[
-              `Total Transactions: ${expenses.length}`,
+              `Total Transactions: ${monthlyExpenses.length}`,
               `Savings Rate: ${savingsPercentage.toFixed(0)}%`,
               `Remaining Budget: ₹${remainingBudget.toLocaleString()}`,
               `Monthly Spend: ₹${totalSpending.toLocaleString()}`,
