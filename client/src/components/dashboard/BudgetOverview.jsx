@@ -86,18 +86,47 @@ export default function BudgetOverview({
     }
   }
 
-  // TOTAL SPENT
-const totalSpent =
+// TOTAL SPENT (CURRENT MONTH ONLY)
+
+const currentMonth =
+  new Date().getMonth();
+
+const currentYear =
+  new Date().getFullYear();
+
+const monthlyExpenses =
   Array.isArray(expenses)
-    ? expenses.reduce(
-        (sum, expense) =>
-          sum +
-          Number(
-            expense.amount || 0
-          ),
-        0
+    ? expenses.filter(
+        (expense) => {
+
+          if (!expense.date)
+            return false;
+
+          const expenseDate =
+            new Date(
+              expense.date
+            );
+
+          return (
+            expenseDate.getMonth() ===
+              currentMonth &&
+
+            expenseDate.getFullYear() ===
+              currentYear
+          );
+        }
       )
-    : 0;
+    : [];
+
+const totalSpent =
+  monthlyExpenses.reduce(
+    (sum, expense) =>
+      sum +
+      Number(
+        expense.amount || 0
+      ),
+    0
+  );
 
   // REMAINING
   const remaining =
