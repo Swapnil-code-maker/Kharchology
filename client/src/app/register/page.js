@@ -248,7 +248,7 @@ export default function RegisterPage() {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  placeholder="Swapnil"
+                  placeholder="First Name"
                   className="w-full bg-white border border-zinc-300 rounded-2xl px-5 py-4 text-[#111827] outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all"
                 />
               </div>
@@ -263,7 +263,7 @@ export default function RegisterPage() {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  placeholder="Soni"
+                  placeholder="Last Name "
                   className="w-full bg-white border border-zinc-300 rounded-2xl px-5 py-4 text-[#111827] outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all"
                 />
               </div>
@@ -281,7 +281,7 @@ export default function RegisterPage() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="+91 9876543210"
+                placeholder="+91 _"
                 className="w-full bg-white border border-zinc-300 rounded-2xl px-5 py-4 text-[#111827] outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all"
               />
             </div>
@@ -297,7 +297,7 @@ export default function RegisterPage() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="swapnil@gmail.com"
+                placeholder="xyz@gmail.com"
                 className="w-full bg-white border border-zinc-300 rounded-2xl px-5 py-4 text-[#111827] outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all"
               />
             </div>
